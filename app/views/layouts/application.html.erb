@@ -11,24 +11,6 @@
   <body>
     <%= yield %>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0eDzaeCjZ02dhrC92hOMMGd8YlxZp1R4&callback=initMap" type="text/javascript"></script>
-
-    <script type="text/javascript" charset="utf-8">
-function initMap() {
-  var uluru = {lat: -70.363, lng: 120.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 1,
-    center: uluru
-
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-
-  });
-
-}
-    </script>
 
   </body>
 </html>

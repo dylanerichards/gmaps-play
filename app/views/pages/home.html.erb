@@ -1,6 +1,45 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= form_tag("/locate", remote: true) do %>
+  <%= text_field_tag "location" %>
 
+  <%= submit_tag %>
+<% end %>
 
 <div id="map">
 </div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0eDzaeCjZ02dhrC92hOMMGd8YlxZp1R4&callback=initMap" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+function initMap(lat, lng) {
+  if(lat == undefined) {
+    lat = 0
+  }
+
+  if(lng == undefined) {
+    lng = 0
+  }
+  var location = {lat: lat, lng: lng};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 20,
+    center: location
+  });
+
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    draggable: true,
+    title: "Lol ;)"
+  });
+
+  var content = "<h1>Here I am!</h1>"
+
+    var infowindow = new google.maps.InfoWindow({
+      content: content
+    });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
+</script>

@@ -1,0 +1,4 @@
+$("body").append("<%= @location %>")
+$("#map").empty()
+
+initMap(<%= @location[0] %>, <%= @location[1] %>)

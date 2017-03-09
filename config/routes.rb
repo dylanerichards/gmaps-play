@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'geo/locate'
+
   get 'pages/home'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "/locate", to: "geo#locate"
 end
